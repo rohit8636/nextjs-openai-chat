@@ -22,6 +22,8 @@ export async function POST(req: NextRequest) {
           const response = await openai.chat.completions.create({
             model: "gpt-4.1-nano",
             messages: [{ role: "user", content: query }],
+            max_completion_tokens: 200,
+            n: 1,
             stream: true, // enable streaming
           });
 
